@@ -1,0 +1,54 @@
+<p>second works!</p>
+<h2>Angular Material test</h2>
+
+
+<b>ngSwitch example</b>
+<div class="flex">
+    <span>{{playlist.name}}</span>
+    <span>{{playlist.numberOfSongs}} songs</span>
+    <span>{{playlist.rating}}</span>
+ </div>
+ <div [ngSwitch]="playlist.rating" style="text-align:left">
+     <div *ngSwitchCase='1'>★</div>
+    <div *ngSwitchCase='2'>★★</div>
+    <div *ngSwitchCase='3'>★★★</div>
+    <div *ngSwitchCase='4'>★★★★</div>
+    <div *ngSwitchCase='5'>★★★★★</div>
+    <div *ngSwitchDefault>No ratings</div>
+ </div>
+
+ <b>Slide toggle</b>
+<mat-slide-toggle>Slide toggle</mat-slide-toggle> <br/>
+
+<b>date picker</b>
+<mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<div id="loading">data loading...</div>
+<b>table data</b>
+<table class="table" id='tab'>
+    <thead>
+    <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of dataList, let i=index">
+        <!-- <td *ngIf="row.salary >30000">{{row.name}} salary is {{row.salary}}</td> -->
+        <td> {{i+1}}</td>
+        <td>{{ row.name }}</td>
+        <td>{{ row.position }}</td>
+        <td>{{ row.office }}</td>
+        <td>{{ row.salary }}</td>
+    </tr>
+    </tbody>
+</table>  

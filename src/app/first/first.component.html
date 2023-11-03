@@ -1,0 +1,54 @@
+<div><b>ngIf vs hidden</b></div>
+
+<h3 *ngIf="isShow">First Component {{ myname | uppercase}}</h3>  <!--*ngIf removes content -->
+<h3 [hidden]="false"> First Component {{ myname | uppercase}}</h3>  <!--[hidden] hides content -->
+<h3 [hidden]="isShow"> First Component {{ myname | uppercase}}</h3> 
+<!-- hidden="{{false}}" hidden="{{isHidden}}" // isHidden = false; -->
+
+<div><b>can use below interpolation (src="{{itemImageUrl}}")</b></div>
+<div><img alt="item" width="100px" src="{{itemImageUrl}}"></div> 
+
+<div><b>or can use below property binding ([src]="itemImageUrl")</b></div>
+<div><img alt="item" width="100px" [src]="itemImageUrl"></div>
+
+class binding, style binding, event binding, interpolation
+<button type="button" [class]="btnColor" [style.background-color]="bgColor" (click)="toggleMessage()" >{{btnColor}} Button</button>
+
+two way binding banana [(ngModel)] need to import FormsModule in app.module.ts
+<!-- <input type="text" name="cname" [(ngModel)]="cname" (change)="textChanged()"/> -->
+
+<br/>
+<div><b>Template refrence variable</b></div>
+<input #ref1 type="text" [(ngModel)]="cname" />************
+<span *ngIf="true">Value: {{ ref1.value }}</span>*********
+<input type="button" value="{{ref1.value}}">
+
+<br/>
+<div><b>Two way binding</b></div>
+<label for="myname">Name: </label>
+  <input type="text" [(ngModel)]="myname" name="myname" (change)="nameChange()"/><br/><br/>
+  <input type="text" [(ngModel)]="myname" id="myname"/>
+{{myname}}
+
+<div><b>ngFor use</b></div>
+
+<ul>
+    <li *ngFor="let customer of customers">{{customer.name}} with id {{customer.id}} is from {{customer.location}}</li>
+</ul>
+
+<div><b>routerlink</b></div>
+<nav>
+  <ul>
+    <li><a routerLink="child-a">Child A</a></li>
+    <li><a routerLink="child-b">Child B</a></li>
+  </ul>
+</nav>
+
+<nav>
+    <ul>
+        <li><a routerLink="../second-component">Relative Route to second component</a></li>
+    </ul>
+</nav>
+
+
+<router-outlet></router-outlet>

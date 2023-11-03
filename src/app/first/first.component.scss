@@ -1,0 +1,18 @@
+.btn-red {
+    color: #ff0000;
+}
+
+.btn-green {
+    color: #00ff00;
+}
+
+nav {
+    ul {
+        li {
+           color: red; 
+           a {
+            color: green;
+           }
+        }
+    }
+}
